@@ -1,9 +1,10 @@
 #include "queue.h"
 
 #define nodeXor(a, b) (NODE *)((long)a ^ (long)b)
+#define melloc malloc
 
 NODE *createNode(int key, int value) {
-   NODE *node = (NODE *)malloc(sizeof(NODE));
+   NODE *node = (NODE *)melloc(sizeof(NODE));
    if (node != NULL) {
       node->key = key;
       node->value = value;
@@ -30,7 +31,7 @@ void printNode(NODE *node) {
 }
 
 QUEUE *createQueue() {
-   QUEUE *queue = (QUEUE *)malloc(sizeof(QUEUE));
+   QUEUE *queue = (QUEUE *)melloc(sizeof(QUEUE));
    if (queue != NULL) {
       queue->begin = NULL;
       queue->end = NULL;
